@@ -26,36 +26,36 @@ class Student:
 class GradStudent(Student):
     def __init__(self, fname='', lname='', thesis=''):
         super().__init__(fname, lname)
-        self.thesis = thesis.upper()
+        self.thesis = thesis
 
     @property
     def thesis(self):
-        return self.thesis
+        return self._thesis
 
     @thesis.setter
     def thesis(self, thesis):
-        self.thesis.upper()
+        self._thesis = 'THESIS: {}'.format(thesis.upper()) 
 
     def __str__(self):
-        return '{} {}\n\tTHESIS: {}'.format(self.first_name, self.last_name, self.thesis)
+        return '{} {}\n\t{}'.format(self.first_name, self.last_name, self.thesis)
 
 
 # TODO: PhDStudent class
 class PhDStudent(Student):
     def __init__(self, fname='', lname='', dissertation=''):
         super().__init__(fname, lname)
-        self.dissertation = dissertation.upper()
+        self.dissertation = dissertation
 
     @property
     def dissertation(self):
-        return self.dissertation
+        return self._dissertation
 
     @dissertation.setter
     def dissertation(self, dissertation):
-        self.dissertation.upper()
+        self._dissertation = 'DISSERTATION: {}'.format(dissertation.upper())
 
     def __str__(self):
-        return '{} {}\n\tDISSERTATION: {}'.format(self.first_name, self.last_name, self.dissertation)
+        return '{} {}\n\t{}'.format(self.first_name, self.last_name, self.dissertation)
 
 
 def add_student(studentType):
